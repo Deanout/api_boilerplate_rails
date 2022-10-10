@@ -12,7 +12,9 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_02_12_195921) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
   create_table "oauth_access_tokens", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "resource_owner_type"
