@@ -1,0 +1,18 @@
+---
+tr:
+  contracts:
+    users:
+      registrations:
+        registercontract:
+          params:
+            email: E-posta
+            password: Şifre
+      passwords:
+        updatecontract:
+          params:
+            password: Şifre
+            password_confirmation: Şifre onayı
+            reset_password_token: Şifre sıfırlama jetonu
+        sendinstructionscontract:
+          params:
+            email: E-posta
