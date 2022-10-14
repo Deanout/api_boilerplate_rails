@@ -65,6 +65,8 @@ class ServiceGenerator < Rails::Generators::NamedBase
   end
 
   def check_validity!
-    raise "Invalid actions: #{options[:actions].join(', ')}" unless options[:actions].all? { |action| ALLOWED_ACTIONS.include?(action) }
+    raise "Invalid actions: #{options[:actions].join(', ')}" unless options[:actions].all? { |action|
+                                                                      ALLOWED_ACTIONS.include?(action)
+                                                                    }
   end
 end

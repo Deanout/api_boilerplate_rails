@@ -11,7 +11,7 @@ concurrency:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  minitest:
+  rspec:
     env:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -79,7 +79,7 @@ jobs:
           bundle exec rails db:schema:load
 
       - name: Running rails tests
-        run: bundle exec rails test
+        run: bundle exec rspec
 
   rubocop:
     strategy:

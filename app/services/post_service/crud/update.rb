@@ -1,22 +1,26 @@
 # frozen_string_literal: true
 
-class PostService::Crud::Update < ApplicationService
-  option :record, type: Types.Instance(Record)
-  option :params, type: Types::Hash
+module PostService
+  module Crud
+    class Update < ApplicationService
+      option :record, type: Types.Instance(Record)
+      option :params, type: Types::Hash
 
-  def call
-    ActiveRecord::Base.transaction(requires_new: true) do
-      yield call_update_record
-    end
-  end
+      def call
+        ActiveRecord::Base.transaction(requires_new: true) do
+          yield call_update_record
+        end
+      end
 
-  private
+      private
 
-  def call_update_record
-    if record.update(params)
-      Success(record)
-    else
-      Failure([:error, record.errors])
+      def call_update_record
+        if record.update(params)
+          Success(record)
+        else
+          Failure([:error, record.errors])
+        end
+      end
     end
   end
 end

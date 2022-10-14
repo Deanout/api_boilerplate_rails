@@ -31,7 +31,8 @@ module Users
         filled?(validate(payload: { password_confirmation: nil }), :password_confirmation, CONTRACT)
         filled?(validate(payload: { password_confirmation: '' }), :password_confirmation, CONTRACT)
         min_size?(validate(payload: { password_confirmation: '12345' }), :password_confirmation, 6, CONTRACT)
-        same_password?(validate(payload: { password_confirmation: '1234566', password: '123456' }), :password_confirmation, CONTRACT)
+        same_password?(validate(payload: { password_confirmation: '1234566', password: '123456' }), :password_confirmation,
+                       CONTRACT)
       end
     end
   end

@@ -38,58 +38,9 @@ gem 'bootsnap', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
-group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[ mri mingw x64_mingw ]
-
-  # A library for generating fake data [https://github.com/faker-ruby/faker]
-  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
-
-  # Pretty print your Ruby objects [https://github.com/awesome-print/awesome_print]
-  gem 'awesome_print'
-
-  # A Ruby static code analyzer and formatter, based on the community Ruby style guide [https://github.com/rubocop/rubocop]
-  gem 'rubocop', require: false
-
-  # An extension of RuboCop focused on code performance checks [https://github.com/rubocop/rubocop-performance]
-  gem 'rubocop-performance', require: false
-
-  # A RuboCop extension focused on enforcing Rails best practices and coding conventions [https://github.com/rubocop/rubocop-rails]
-  gem 'rubocop-rails', require: false
-
-  # Code style checking for Minitest files [https://github.com/rubocop/rubocop-minitest]
-  gem 'rubocop-minitest', require: false
-
-  # Pry is a runtime developer console and IRB alternative with powerful introspection capabilities [https://github.com/pry/pry]
-  gem 'pry', '~> 0.14.1'
-
-  # Byebug is a Ruby debugger [https://github.com/deivid-rodriguez/byebug]
-  gem 'byebug', '~> 11.1', '>= 11.1.3'
-end
-
 group :development do
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
-
   # E-mail opener [https://github.com/ryanb/letter_opener]
   gem 'letter_opener', '~> 1.4', '>= 1.4.1'
-end
-
-group :test do
-  # Making tests easy on the fingers and eyes [https://github.com/thoughtbot/shoulda]
-  gem 'shoulda', '~> 4.0'
-
-  # Simple one-liner tests for common Rails functionality [https://github.com/thoughtbot/shoulda-matchers#minitest]
-  gem 'shoulda-matchers', '~> 4.0'
-
-  # A library for setting up Ruby objects as test data. [https://github.com/thoughtbot/factory_bot_rails]
-  gem 'factory_bot_rails', '~> 6.2'
-
-  # Mocha is a mocking and stubbing library for Ruby [https://github.com/freerange/mocha]
-  gem 'mocha', '~> 1.13'
-
-  # Allows you to focus on a few tests with ease without having to use command-line arguments [https://github.com/seattlerb/minitest-focus]
-  gem 'minitest-focus'
 end
 
 # Define and serve live-updating Swagger JSON for Ruby apps [https://github.com/fotinakis/swagger-blocks]
@@ -124,3 +75,33 @@ gem 'sidekiq', '~> 6.4', '>= 6.4.1'
 
 # Object-based searching [https://github.com/activerecord-hackery/ransack]
 gem 'ransack', github: 'activerecord-hackery/ransack'
+
+group :development, :test do
+  gem 'awesome_print'
+  gem 'brakeman'
+  gem 'bullet'
+  gem 'byebug', '~> 11.1', '>= 11.1.3'
+  gem 'debug', platforms: %i[ mri mingw x64_mingw ]
+  gem 'factory_bot_rails'
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+  gem 'guard-rspec', require: false
+  gem 'pry', '~> 0.14.1'
+  gem 'rubocop', require: false
+end
+
+group :test do
+  gem 'bundle-audit', require: false
+  gem 'database_cleaner'
+  gem 'mocha', '~> 1.13'
+  gem 'rails_best_practices'
+  gem 'rspec-rails'
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rake', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'rubycritic', require: false
+  gem 'shoulda', '~> 4.0'
+  gem 'shoulda-matchers'
+  gem 'simplecov', require: false
+  gem 'test-prof'
+end

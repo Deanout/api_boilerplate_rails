@@ -15,7 +15,6 @@ module RailsApiBoilerplate
 
     I18n.load_path += Dir[Rails.root.join('config/locales/**/*.yml').to_s]
     I18n.available_locales = %i[en tr]
-
     config.i18n.default_locale = :en
 
     # Configuration for the application, engines, and railties goes here.
@@ -30,7 +29,7 @@ module RailsApiBoilerplate
     Dir[Rails.root.join('lib/supports/**/*.rb')].each { |file| require file }
 
     config.generators do |g|
-      g.test_framework :test_unit, fixture: false
+      g.test_framework :rspec
       g.orm :active_record, primary_key_type: :uuid
     end
 
